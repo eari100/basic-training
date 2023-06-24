@@ -37,12 +37,6 @@ export const Todo = () => {
         setEditIndex(null);
     }
 
-    const handleEditChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (editTodoRef.current) {
-            editTodoRef.current.value = e.target.value;
-        }
-    };
-
     const renderDefaultItem = (todo: string, index: number) => {
         return (
             <div key={index}>
@@ -60,7 +54,6 @@ export const Todo = () => {
                     type="text"
                     defaultValue={todo}
                     ref={editTodoRef}
-                    onChange={ (e) => handleEditChange }
                 />
                 <button onClick={() => editTodo(index)}>완료</button>
                 <button onClick={cancelEditing}>취소</button>
